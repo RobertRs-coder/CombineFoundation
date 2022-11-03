@@ -1,4 +1,4 @@
 #  Combine Foundation
 
-Try to learn Combine Framework by simple examples
+In this playground, I try to learn Combine Framework by basic examples
 
