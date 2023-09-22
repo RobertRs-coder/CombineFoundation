@@ -18,9 +18,13 @@ let subscriber1 = publisher1
     .replaceNil(with: ":-)") //In case of nil value replace it
     .sink { string in
         //Unwrap optional
-        if let string = string {
-            print("Receive: \(string)")
-        }
+        
+        guard let string = string else { return }
+        print("Receive: \(string)")
+
+//        if let string = string {
+//            print("Receive: \(string)")
+//        }
     }
 
 print("-------------------------------")

@@ -20,7 +20,7 @@ var message: String = ""{
     }
 }
 
-//Create notification center Publisher
+//Create Notification Center Publisher
 let publisher = NotificationCenter.default
     .publisher(for: .myNotification)
     .map{

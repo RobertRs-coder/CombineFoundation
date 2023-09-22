@@ -12,7 +12,7 @@ print("-------------------------------")
 let subscriber1 = publisher1.sink { data in
     print("Example 1: \(data)")
 }
-//subscriber1.cancel() //Cancel the subscriber
+// subscriber1.cancel() //Cancel the subscriber
 
 
 print("-------------------------------")
@@ -44,16 +44,16 @@ print("Example 4: Direct Assign")
 print("-------------------------------")
 
 class DataObject{
-    var value : Int = 0{
-        //Property Observer
-        didSet{
-            //When attribute changes its value do:
-            print("Ejerc4. Valor asignado \(value)")
+    var value: Int = 0 {
+        // Property Observer
+        didSet {
+            // When attribute changes its value do:
+            print("Example 4. assigned value \(value)")
         }
     }
 }
 
-let dataObj = DataObject() //Instantiate the last class
+let dataObj = DataObject() // Instantiate the last class
 
 var subscriber4 = Set<AnyCancellable>()
 
@@ -66,20 +66,20 @@ print("-------------------------------")
 print("Example 5: ViewModel Example")
 print("-------------------------------")
 
-final class ViewModel{
-    var value:String = ""{
+final class ViewModel {
+    var value: String = "" {
         didSet{
-            //When attribute changes its value do:
+            // When attribute changes its value do:
             print("Example 5: assigned value: \(value)")
         }
     }
     
     var subscriber = Set<AnyCancellable>()
-    var publisher = ["Hi", "Keepcoders"].publisher
+    var publisher = ["Hi", "Guys"].publisher
     
     init(){
         publisher
-            .assign(to: \.value, on: self)//It is the class itself
+            .assign(to: \.value, on: self) // keypath to class attribute on self class
             .store(in: &subscriber)
     }
 }

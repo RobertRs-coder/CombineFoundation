@@ -3,9 +3,9 @@
  */
 import Combine
 
-print("-------------------------------")
+print("--------------------------------")
 print("Example 1: Integer Array -> Sink")
-print("-------------------------------")
+print("--------------------------------")
 
 let publisher1 = [1,2,3,4].publisher
 
@@ -14,9 +14,9 @@ publisher1.sink { data in
     print("Example 1: \(data)")
 }
 
-print("-------------------------------")
+print("--------------------------------------------")
 print("Ejer2: Integer Array -> Sink with completion")
-print("-------------------------------")
+print("--------------------------------------------")
 
 publisher1.sink { completion in
     //We receive the status

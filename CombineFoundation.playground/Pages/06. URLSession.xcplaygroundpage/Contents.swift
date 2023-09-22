@@ -26,7 +26,7 @@ final class PhotoViewModel: ObservableObject{
         
     }
     
-    func DownloadImage(urlString: String) -> Void{
+    func downloadImage(urlString: String) -> Void{
         let url = URL(string: urlString)!
         
         subscriber = URLSession.shared
@@ -38,7 +38,7 @@ final class PhotoViewModel: ObservableObject{
             .receive(on: DispatchQueue.main) //Go to main thread because we change UI
             .sink{
                 //Unwrap photo
-                if let photoDownloaded = $0{
+                if let photoDownloaded = $0 {
                     self.photo = photoDownloaded
                 }
             }
@@ -47,6 +47,6 @@ final class PhotoViewModel: ObservableObject{
 }
 
 let viewModel = PhotoViewModel()
-viewModel.DownloadImage(urlString: "https://i.blogs.es/f7b0ed/steve-jobs/1366_2000.jpg")
-//Few seconds to receive photo
+viewModel.downloadImage(urlString: "https://i.blogs.es/f7b0ed/steve-jobs/1366_2000.jpg")
+//Few seconds to receive photo because is async
 viewModel.photo
